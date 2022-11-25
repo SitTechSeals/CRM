@@ -1,0 +1,91 @@
+.card{
+  background-color: #2e2e2e;
+  min-width:450px;
+  border-radius: 10px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  overflow: hidden;
+
+}
+.title{
+  text-align: center;
+  font-size: 50px;
+  color: gray;
+}
+.contant{
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  width: 77%;
+}
+.inputlogin{
+  padding: 10px 14px;
+  background: rgb(73, 73, 73);
+  border: none;
+  font-size: 19px;
+  border-radius: 5px;
+  color: rgb(69, 255, 181);
+  transition: all 0.1s;
+
+}
+.inputlogin:focus{
+  outline: rgb(69, 255, 181) solid;
+}
+.btu{
+  margin: 10px;
+}
+button{
+
+  background-color: #0a6bff;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+  min-height: 56px;
+  min-width: 120px;
+  padding: 16px 20px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+
+button:hover {
+  background-color: #065dd8;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 16px 44px;
+    min-width: 150px;
+  }
+
+}
+
+
+.toast-demo button {
+  min-width: 10rem;
+  margin-right: .5rem;
+}
+
+@media screen and (max-width: 960px) {
+  .toast-demo button {
+      width: 100%;
+      margin-bottom: .5rem;
+  }
+}
