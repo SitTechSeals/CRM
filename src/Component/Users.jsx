@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, Fragment } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { ProductService } from "./ProductService";
-import Data from "./CustomerService.json";
+import { ProductService } from "../ProductService";
+import Data from "../CustomerService.json";
 import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
-import "./index.css";
+import "../index.css";
 import axios from "axios";
 import { Modul } from "./Delete";
 import Edit from "./Edit";

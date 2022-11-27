@@ -53,11 +53,11 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
 import { useState, useEffect } from "react";
-import { Login } from "./Login";
+import { Login } from "./Component/Login";
 import Cookies from 'js-cookies';
 import decode from 'jwt-decode';
-import { Layout } from './Layout';
-import Users, { DataTableDemo, DataTableTemplatingDemo } from './Users';
+import { Layout } from './Component/Layout';
+import Users, { DataTableDemo, DataTableTemplatingDemo } from './Component/Users';
 function App() {
   const [value2, setValue2] = useState("");
   const [token, settoken] = useState("");
