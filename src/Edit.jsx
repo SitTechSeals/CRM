@@ -37,7 +37,7 @@ useEffect(() => {
 async function  getData (params)  {
  let result = await fetch("https://jsonplaceholder.typicode.com/users")
     result = await result.json()
-    setName(result[3].name)
+    setName(result[0].name)
 
 }
   console.log(name);
