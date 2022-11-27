@@ -17,7 +17,7 @@ export const DataTableTemplatingDemo = () => {
   const [whereId, setWhereId] = useState([])
   const menu = useRef(null);
   const data = [
-      {id:1, name: "Bahaa", email: "bahaa@newsoft.ps", status: "negotiation",active:true },
+      {id:1, name: "Bahhaa", email: "bahaa@newsoft.ps", status: "negotiation",active:true },
       {id:2, name: "Ahmad", email: "Ahmad@newsoft.ps", status: "proposal",active:false },
       {id:3, name: "Khalad", email: "Khalad@newsoft.ps", status: "renewal",active:true },
       {id:4, name: "Muaz", email: "Muaz@newsoft.ps", status: "new",active:false },
