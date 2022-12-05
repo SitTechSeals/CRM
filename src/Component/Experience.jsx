@@ -18,7 +18,7 @@ export const Experience = () => {
   const DataFollowers = [
     {
       userId: 1,
-      firstName: "Krish",
+      firstName: "krish",
       lastName: "Lee",
       phoneNumber: "123456",
       emailAddress: "krish.lee@learningcontainer.com",
@@ -27,7 +27,7 @@ export const Experience = () => {
     },
     {
       userId: 2,
-      firstNameL: "racks",
+      firstName: "racks",
       lastName: "jacson",
       phoneNumber: "123456",
       emailAddress: "racks.jacson@learningcontainer.com",
@@ -62,7 +62,11 @@ export const Experience = () => {
       menu: [],
     },
   ];
+  
 
+  const [search, setSearch] = useState("");
+
+  
   const items = [
     { label: "Home", icon: "pi pi-fw pi-home" },
     { label: "Calendar", icon: "pi pi-fw pi-calendar" },
@@ -85,7 +89,7 @@ export const Experience = () => {
   return (
     <div>
       <Toast ref={toast}></Toast>
-
+    
       <TabView activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
         <TabPanel header="Profile">
           <MiniProfile />

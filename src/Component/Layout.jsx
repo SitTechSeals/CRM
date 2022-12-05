@@ -15,7 +15,7 @@ export const Layout = () => {
       label: "Home",
       icon: "pi pi-fw pi-home",
       command:() => {
-        navigate('min',{replace:true})
+        navigate('experience',{replace:true})
       }
     },
     {
