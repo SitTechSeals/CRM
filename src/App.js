@@ -49,6 +49,8 @@
 // export default App;
 import React, {useRef} from 'react';
 import { Toast } from 'primereact/toast';
+
+import 'primeflex/primeflex.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
@@ -58,6 +60,12 @@ import Cookies from 'js-cookies';
 import decode from 'jwt-decode';
 import { Layout } from './Component/Layout';
 import Users, { DataTableDemo, DataTableTemplatingDemo } from './Component/Users';
+import MiniProfile from './Component/MiniProfile';
+import { Experience } from './Component/Experience';
+import { useRoutes } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
+
+import Router from './routes'
 function App() {
   const [value2, setValue2] = useState("");
   const [token, settoken] = useState("");
@@ -78,12 +86,15 @@ function App() {
     window.location.reload()
   }
 
+  {/* {token === "JWT" ? <Layout/> : <Login/>} */}
+  {/* <DataTableTemplatingDemo/> */}
 
   return (
-    <div className="App">
-{/* {token === "JWT" ? <Layout/> : <Login/>} */}
-<DataTableTemplatingDemo/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Router/>
+      </div>
+    </BrowserRouter>
   );
 }
 

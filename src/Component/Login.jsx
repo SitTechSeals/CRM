@@ -32,7 +32,7 @@ export const Login = () => {
   const loading = (
     <div style={{ width: "100%" }}>
       <i className="pi pi-spin pi-spinner" style={{ fontSize: "2em" }}></i>
-      <span style={{ margin: "91px" }}>Wait for login</span>
+      <span style={{ margin: "80px" }}>Wait for login</span>
     </div>
   );
   const showSticky = (
