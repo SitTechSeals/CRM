@@ -7,15 +7,21 @@ import { InputText } from "primereact/inputtext";
 import { useEffect } from "react";
 import { Dropdown } from 'primereact/dropdown';
 
-export const Followers = ({ DataFollowers }) => {
+export const Followers = ({ DataFollowers,setPostsPerPage }) => {
   const [paramIdFollwerst, setParamIdFollwerst] = useState("");
   const [displayPosition, setDisplayPosition] = useState(false);
   const [value, setValue] = useState("");
-  const sort = [10,20,30]
-  const [selectedItem, setSelectedItem] = useState(null);
+  const  items =[
+    { label: '10', value: 10 },
+    { label: '50', value: 50 },
+    { label: '10', value: 100 },
+    { label: 'All', value: 1000000000000000 }
+]
+  const [selectedItem, setSelectedItem] = useState(10);
 
   const onItemChange = (e) => {
     setSelectedItem(e.value);
+    setPostsPerPage(e.value)
 }
   const Header = ({ img }) => {
     return (
@@ -30,13 +36,18 @@ export const Followers = ({ DataFollowers }) => {
         }}
         onError={(e) =>
           (e.target.src =
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&usqp=CAU")
+            "https://www.w3schools.com/howto/img_avatar.png")
         }
       />
     );
   };
+  console.log('====================================');
+  console.log(DataFollowers);
+  console.log('====================================');
   const data = DataFollowers.filter((film) => film.first_name.includes(value));
-
+  console.log('====================================');
+  console.log(selectedItem);
+  console.log('====================================');
   return (
     <div>
       <Card>
@@ -53,7 +64,7 @@ export const Followers = ({ DataFollowers }) => {
         </div>
         <div className="field col-12 md:col-4">
           <span className="p-float-label">
-          <Dropdown value={selectedItem} options={sort} onChange={onItemChange} virtualScrollerOptions={{ itemSize: 38 }} placeholder="Select Item"/>
+          <Dropdown value={selectedItem}  options={items} onChange={onItemChange} virtualScrollerOptions={{ itemSize: 38 }} placeholder="Select Item"/>
           </span>
         </div>
         </div>
@@ -84,7 +95,7 @@ export const Followers = ({ DataFollowers }) => {
               ))}
             </div>
           ) : (
-            `No results for:${value}`
+            <p>No results for: <span style={{fontSize:15,fontWeight:"bold"}}>{value}</span></p>
           )}
         </div>
       </Card>

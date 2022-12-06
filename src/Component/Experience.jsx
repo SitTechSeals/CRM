@@ -15,7 +15,12 @@ export const Experience = () => {
   const navigate = useNavigate();
   const toast = useRef(null);
   const [activeIndex, setActiveIndex] = useState(2);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage,setPostsPerPage] = useState(10);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = Users.slice(indexOfFirstPost, indexOfLastPost);
   // const DataFollowers = [
   //   {
   //     userId: 1,
@@ -110,7 +115,7 @@ export const Experience = () => {
           <SocialMedia />
         </TabPanel>
         <TabPanel header="Followers">
-          <Followers DataFollowers={Users} />
+          <Followers DataFollowers={currentPosts} setPostsPerPage={setPostsPerPage} />
         </TabPanel>
       </TabView>
       <Outlet />
