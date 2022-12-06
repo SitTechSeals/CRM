@@ -14,8 +14,8 @@ export const Followers = ({ DataFollowers }) => {
   const Header = ({ img }) => {
     return (
       <img
-        alt="Card"
-        src={img}
+        alt={img}
+        src={`${img}`}
         style={{
           width: "7em",
           height: "7em",
@@ -24,12 +24,12 @@ export const Followers = ({ DataFollowers }) => {
         }}
         onError={(e) =>
           (e.target.src =
-            "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&usqp=CAU")
         }
       />
     );
   };
-  const data = DataFollowers.filter((film) => film.firstName.includes(value));
+  const data = DataFollowers.filter((film) => film.first_name.includes(value));
 
   return (
     <div>
@@ -42,13 +42,14 @@ export const Followers = ({ DataFollowers }) => {
             placeholder="Search"
           />
         </span>
-        <div className="cardContainer">
-          {data.map(({ firstName, lastName, img, userId }) => (
-            <div className="cardFollowers" key={userId}>
+        <div >
+        {data.length !== 0 ?  <div className="cardContainer">
+    {data.map(({ first_name, last_name, img, id }) => (
+            <div className="cardFollowers" key={id}>
               <Link
                 style={{ textDecoration: "none" }}
                 onClick={() => {
-                  setParamIdFollwerst(userId);
+                  setParamIdFollwerst(id);
                   setDisplayPosition(true);
                 }}
               >
@@ -60,11 +61,12 @@ export const Followers = ({ DataFollowers }) => {
                     height: 0,
                   }}
                 >
-                  {firstName} {lastName}
+                  {first_name} {last_name}
                 </p>
               </Link>
             </div>
           ))}
+          </div>: `No results for:${value}`}
         </div>
       </Card>
       <FollowersModel

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
-import { Rating } from 'primereact/rating';
-
+import { Rating } from "primereact/rating";
+import "./DataViewDemo.css";
 export const FollowersModel = ({
   DataFollowers,
   paramIdFollwerst,
   setDisplayPosition,
   displayPosition,
 }) => {
-  const [position, setPosition] = useState("center");
+  const [position, setPosition] = useState("bottom");
 
   const dialogFuncMap = {
     displayPosition: setDisplayPosition,
@@ -18,42 +18,48 @@ export const FollowersModel = ({
     dialogFuncMap[`${name}`](false);
   };
   const Test = DataFollowers.filter(
-    (data) => data.userId === paramIdFollwerst
+    (Test) => Test?.id === paramIdFollwerst
   )[0];
 
   return (
     <div>
       <Dialog
-    
         visible={displayPosition}
         position={position}
         modal
-        style={{ width: "25em" }}
+        style={{ width: "55em" }}
         onHide={() => onHide("displayPosition")}
         draggable={false}
         resizable={false}
       >
-        <div className="col-12 md:col-4">
-                <div className="product-grid-item card">
-                    <div className="product-grid-item-top">
-                        <div>
-                            <i className="pi pi-tag product-category-icon"></i>
-                            <span className="product-category">{Test?.firstName}</span>
-                        </div>
-                        <span className={`product-badge status`}>Test</span>
-                    </div>
-                    <div className="product-grid-item-content">
-                    <img src={`${Test?.img}`} width={100} height={100} style={{objectFit:"cover"}} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt="test" />
-                        <div className="product-name">Test</div>
-                        <div className="product-description">Test</div>
-                        <Rating value={"Test"} readOnly cancel={false}></Rating>
-                    </div>
-                    <div className="product-grid-item-bottom">
-                        <span className="product-price">$Test</span>
-                        <Button icon="pi pi-shopping-cart" label="Add to Cart" disabled={"OUTOFSTOCK" === 'OUTOFSTOCK'}></Button>
-                    </div>
-                </div>
+        <div className="col-12">
+          <div className="product-list-item">
+            <img
+              src={`${Test?.img}`}
+              onError={(e) =>
+                (e.target.src =
+                  "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+              }
+              alt={Test?.name}
+            />
+            <div className="product-list-detail">
+              <div className="product-name">{Test?.first_name.charAt(0).toUpperCase() + Test?.first_name.slice(1)} {Test?.last_name.charAt(0).toUpperCase() + Test?.last_name.slice(1)}</div>
+              <br/>
+              <span
+                className={`product-badge status-${Test?.status !==0 ? "instock":"outofstock"}`}
+              >
+              <span className="product-category">{Test?.status !==0 ? "Online" : "Offline" }</span>
+              </span>
             </div>
+            <div className="product-list-action">
+              <Button
+                icon="pi pi-user"
+                label="Go To Profile"
+                disabled={Test?.inventoryStatus === "OUTOFSTOCK"}
+              ></Button>
+            </div>
+          </div>
+        </div>
       </Dialog>
     </div>
   );
