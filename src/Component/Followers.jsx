@@ -5,12 +5,18 @@ import { FollowersModel } from "./FollowersModel";
 import "./style.css";
 import { InputText } from "primereact/inputtext";
 import { useEffect } from "react";
+import { Dropdown } from 'primereact/dropdown';
 
 export const Followers = ({ DataFollowers }) => {
   const [paramIdFollwerst, setParamIdFollwerst] = useState("");
   const [displayPosition, setDisplayPosition] = useState(false);
   const [value, setValue] = useState("");
+  const sort = [10,20,30]
+  const [selectedItem, setSelectedItem] = useState(null);
 
+  const onItemChange = (e) => {
+    setSelectedItem(e.value);
+}
   const Header = ({ img }) => {
     return (
       <img
@@ -34,6 +40,8 @@ export const Followers = ({ DataFollowers }) => {
   return (
     <div>
       <Card>
+      <div className="p-fluid grid">
+      <div className="field col-5 md:col-2">
         <span className="p-input-icon-left">
           <i className="pi pi-search" />
           <InputText
@@ -42,31 +50,42 @@ export const Followers = ({ DataFollowers }) => {
             placeholder="Search"
           />
         </span>
-        <div >
-        {data.length !== 0 ?  <div className="cardContainer">
-    {data.map(({ first_name, last_name, img, id }) => (
-            <div className="cardFollowers" key={id}>
-              <Link
-                style={{ textDecoration: "none" }}
-                onClick={() => {
-                  setParamIdFollwerst(id);
-                  setDisplayPosition(true);
-                }}
-              >
-                <Header img={img} />
-                <p
-                  style={{
-                    color: "#a600ff",
-                    fontWeight: "bold",
-                    height: 0,
-                  }}
-                >
-                  {first_name} {last_name}
-                </p>
-              </Link>
+        </div>
+        <div className="field col-12 md:col-4">
+          <span className="p-float-label">
+          <Dropdown value={selectedItem} options={sort} onChange={onItemChange} virtualScrollerOptions={{ itemSize: 38 }} placeholder="Select Item"/>
+          </span>
+        </div>
+        </div>
+        <div>
+          {data.length !== 0 ? (
+            <div className="cardContainer">
+              {data.map(({ first_name, last_name, img, id }) => (
+                <div className="cardFollowers" key={id}>
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    onClick={() => {
+                      setParamIdFollwerst(id);
+                      setDisplayPosition(true);
+                    }}
+                  >
+                    <Header img={img} />
+                    <p
+                      style={{
+                        color: "#a600ff",
+                        fontWeight: "bold",
+                        height: 0,
+                      }}
+                    >
+                      {first_name} {last_name}
+                    </p>
+                  </Link>
+                </div>
+              ))}
             </div>
-          ))}
-          </div>: `No results for:${value}`}
+          ) : (
+            `No results for:${value}`
+          )}
         </div>
       </Card>
       <FollowersModel
