@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Card } from "primereact/card";
 import { TabMenu } from "primereact/tabmenu";
 import { Toast } from "primereact/toast";
@@ -10,10 +10,23 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import MiniProfile from "./MiniProfile";
 import SocialMedia from "./SocialMedia";
 import { Followers } from "./Followers";
+<<<<<<< HEAD
 import { User } from "./Users";
+=======
+import {Users} from './Users'
+// import { Users } from "./user";
+import { ProductService } from './ProductService';
+>>>>>>> 60cbed2df3746858853e25e0d3fd02285107615d
 export const Experience = () => {
+  const [products, setProducts] = useState([]);
+  const productService = new ProductService();
+  useEffect(() => {
+    productService.getProducts().then(data => setProducts(data));
+}, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const navigate = useNavigate();
   const toast = useRef(null);
+<<<<<<< HEAD
   const [paramIdFollwerst, setParamIdFollwerst] = useState("");
   const [activeIndex, setActiveIndex] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,6 +35,10 @@ export const Experience = () => {
   // const indexOfLastPost = currentPage * postsPerPage;
   // const indexOfFirstPost = indexOfLastPost - postsPerPage;
   // const currentPosts = Users.slice(indexOfFirstPost, indexOfLastPost);
+=======
+  const [activeIndex, setActiveIndex] = useState(2);
+
+>>>>>>> 60cbed2df3746858853e25e0d3fd02285107615d
   // const DataFollowers = [
   //   {
   //     userId: 1,
@@ -114,12 +131,21 @@ export const Experience = () => {
         </TabPanel>
         <TabPanel header="About">
           <SocialMedia />
+<<<<<<< HEAD
         </TabPanel> */}
         {/* <TabPanel header="Followers">
           <Followers DataFollowers={currentPosts} setPostsPerPage={setPostsPerPage} />
         </TabPanel> */}
         <TabPanel header="Test">
           <User />
+=======
+        </TabPanel>*/}
+        {/* <TabPanel header="Followers">
+          <Followers DataFollowers={Users} setPostsPerPage={setPostsPerPage} />
+        </TabPanel>  */}
+      <TabPanel header="Test">
+          <Users  />
+>>>>>>> 60cbed2df3746858853e25e0d3fd02285107615d
         </TabPanel>
       </TabView>
       <Outlet />

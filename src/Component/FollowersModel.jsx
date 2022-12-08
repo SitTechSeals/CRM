@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import { Rating } from "primereact/rating";
 import "./DataViewDemo.css";
+import { ProductService } from './ProductService';
+import '../index.css'
 export const FollowersModel = ({
   DataFollowers,
   paramIdFollwerst,
@@ -10,14 +12,20 @@ export const FollowersModel = ({
   displayPosition,
 }) => {
   const [position, setPosition] = useState("bottom");
+  const [products, setProducts] = useState([]);
 
+  const productService = new ProductService();
+
+  useEffect(() => {
+      productService.getProducts().then(data => setProducts(data));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const dialogFuncMap = {
     displayPosition: setDisplayPosition,
   };
   const onHide = (name) => {
     dialogFuncMap[`${name}`](false);
   };
-  const Test = DataFollowers.filter(
+  const Test = products.filter(
     (Test) => Test?.id === paramIdFollwerst
   )[0];
 
@@ -42,7 +50,7 @@ export const FollowersModel = ({
               alt={Test?.name}
             />
             <div className="product-list-detail">
-              <div className="product-name">{Test?.first_name.charAt(0).toUpperCase() + Test?.first_name.slice(1)} {Test?.last_name.charAt(0).toUpperCase() + Test?.last_name.slice(1)}</div>
+              <div className="product-name">{Test?.name.charAt(0).toUpperCase() + Test?.name.slice(1)} {Test?.name.charAt(0).toUpperCase() + Test?.name.slice(1)}</div>
               <br/>
               <span
                 className={`product-badge status-${Test?.status !==0 ? "instock":"outofstock"}`}
