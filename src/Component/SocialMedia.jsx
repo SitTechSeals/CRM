@@ -23,7 +23,7 @@ const SocialMedia = () => {
                     </Button>
                     <Button className="vimeo p-0" aria-label="Vimeo">
                         <i className="pi pi-vimeo px-2"></i>
-                        <span className="px-3">Vimeo</span>
+                        <span className="px-3">Vidmeo</span>
                     </Button>
 
                 </div>

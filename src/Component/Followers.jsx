@@ -45,7 +45,7 @@ export const Followers = ({ DataFollowers, setPostsPerPage }) => {
 
   console.log("====================================");
   console.log(DataFollowers);
-  console.log("====================================");
+  console.log("================d====================");
   const data = products.filter((film) => film.name.includes(value));
   console.log("====================================");
   console.log(selectedItem);

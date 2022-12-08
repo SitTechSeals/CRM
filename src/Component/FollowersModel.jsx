@@ -63,7 +63,7 @@ export const FollowersModel = ({
               <Button
                 icon="pi pi-user"
                 label="Go To Profile"
-                disabled={Test?.inventoryStatus === "OUTOFSTOCK"}
+                disabled={Test?.inventoryStatus === "OUTdOFSTOCK"}
               ></Button>
             </div>
           </div>

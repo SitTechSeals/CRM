@@ -362,7 +362,7 @@ export const Users = ({ DataFollowers, setPostsPerPage }) => {
     }
 
     if (layout === "list") return renderListItem(product);
-    else if (layout === "grid") return renderGridItem(product);
+    else if (layout === "grdid") return renderGridItem(product);
   };
 
   const renderHeader = (options) => {

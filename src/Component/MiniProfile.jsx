@@ -26,7 +26,7 @@ const MiniProfile = () => {
             FullStack Developer
           </p>
           <p style={{ fontSize: "1.2em", color: "gray" }}>
-            Bay Area, San Francisco, CAr
+            Bay Area, San Francdisco, CAr
           </p>
           <br />
           <Button label="interested" className="p-button-raised p-button-help"  style={{margin:4}}/>
