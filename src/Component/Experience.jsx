@@ -10,17 +10,18 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import MiniProfile from "./MiniProfile";
 import SocialMedia from "./SocialMedia";
 import { Followers } from "./Followers";
-import { Users } from "./user";
+import { User } from "./Users";
 export const Experience = () => {
   const navigate = useNavigate();
   const toast = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(2);
+  const [paramIdFollwerst, setParamIdFollwerst] = useState("");
+  const [activeIndex, setActiveIndex] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage,setPostsPerPage] = useState(10);
-  const paginate = pageNumber => setCurrentPage(pageNumber);
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = Users.slice(indexOfFirstPost, indexOfLastPost);
+  // const paginate = pageNumber => setCurrentPage(pageNumber);
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const currentPosts = Users.slice(indexOfFirstPost, indexOfLastPost);
   // const DataFollowers = [
   //   {
   //     userId: 1,
@@ -108,14 +109,17 @@ export const Experience = () => {
       <Toast ref={toast}></Toast>
     
       <TabView activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
-        <TabPanel header="Profile">
+        {/* <TabPanel header="Profile">
           <MiniProfile />
         </TabPanel>
         <TabPanel header="About">
           <SocialMedia />
-        </TabPanel>
-        <TabPanel header="Followers">
+        </TabPanel> */}
+        {/* <TabPanel header="Followers">
           <Followers DataFollowers={currentPosts} setPostsPerPage={setPostsPerPage} />
+        </TabPanel> */}
+        <TabPanel header="Test">
+          <User />
         </TabPanel>
       </TabView>
       <Outlet />

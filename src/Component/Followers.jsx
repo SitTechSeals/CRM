@@ -72,13 +72,13 @@ export const Followers = ({ DataFollowers,setPostsPerPage }) => {
           {data.length !== 0 ? (
             <div className="cardContainer">
               {data.map(({ first_name, last_name, img, id }) => (
-                <div className="cardFollowers" key={id}>
-                  <Link
+                <div className="cardFollowers" key={id}                  onClick={() => {
+                  setParamIdFollwerst(id);
+                  setDisplayPosition(true);
+                }}>
+                  <div
                     style={{ textDecoration: "none" }}
-                    onClick={() => {
-                      setParamIdFollwerst(id);
-                      setDisplayPosition(true);
-                    }}
+   
                   >
                     <Header img={img} />
                     <p
@@ -90,7 +90,7 @@ export const Followers = ({ DataFollowers,setPostsPerPage }) => {
                     >
                       {first_name} {last_name}
                     </p>
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>
