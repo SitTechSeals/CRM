@@ -410,7 +410,7 @@ export const Users = ({ DataFollowers, setPostsPerPage }) => {
           header={header}
           itemTemplate={itemTemplate}
           paginator
-          // paginatorTemplate={template1}
+          // paginatorTemplates={template1}
           first={first2} rows={rows2} onPage={onCustomPage1} 
           
         />
