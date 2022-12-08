@@ -37,8 +37,7 @@ export const FollowersModel = ({
         modal
         style={{ width: "55em" }}
         onHide={() => onHide("displayPosition")}
-        draggable={false}
-        resizable={false}
+
       >
         <div className="col-12">
           <div className="product-list-item">

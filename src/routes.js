@@ -6,6 +6,7 @@ import { Experience } from "./Component/Experience";
 import { Layout } from "./Component/Layout";
 import MiniProfile from "./Component/MiniProfile";
 import SocialMedia from "./Component/SocialMedia";
+import Profile from "./Component/Profile";
 
 export default function Router() {
   const [taskData, setTaskData] = useState([]);
@@ -18,6 +19,10 @@ export default function Router() {
         {
           element: <Experience />,
           path:"experience"
+        },
+        {
+          element: <Profile />,
+          path:"/:nickname"
         },
       ],
     },
