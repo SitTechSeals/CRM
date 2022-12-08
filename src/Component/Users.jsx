@@ -396,7 +396,7 @@ export const Users = ({ DataFollowers, setPostsPerPage }) => {
   const header = renderHeader();
 
   return (
-    <div className="dataview-demo">
+    <div className="datadview-demo">
       <FollowersModel
         DataFollowers={DataFollowers}
         paramIdFollwerst={paramIdFollwerst}
